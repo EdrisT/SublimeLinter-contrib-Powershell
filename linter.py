@@ -22,7 +22,7 @@ class Powershell(Linter):
     else:
         cmd = 'pwsh -nol -c {}'.format(script) + '; PSLint -PSFile ${temp_file}'
 
-    regex = (r'(?P<line>\d+)\s\s\s(?P<message>.*?)\s\s\s((?P<error>ParseError)|(?P<warning>Warning|Information))\s\s\s(?P<col>\d+)\s\s\s(?P<code>.*)')
+    regex = (r'(?P<line>\d+)\s\s\s(?P<message>.*?)\s\s\s((?P<error>\S*Error)|(?P<warning>Warning|Information))\s\s\s(?P<col>\d+)\s\s\s(?P<code>.*)')
     tempfile_suffix = '.tempPS1'
     multiline = False
     word_re = r'^([-\S]+|\s+$)'
