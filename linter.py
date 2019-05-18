@@ -1,4 +1,6 @@
 from SublimeLinter.lint import Linter
+import os
+
 script = """
 function PSLint
 {
@@ -19,7 +21,11 @@ function PSLint
 
 class Powershell(Linter):
 
-    cmd = 'powershell.exe -c {}'.format(script) + '; PSLint -PSFile ${file}'
+    if os.name == 'nt':
+        cmd = 'powershell.exe -c {}'.format(script) + '; PSLint -PSFile ${file}'
+    else:
+        cmd = 'pwsh -c {}'.format(script) + '; PSLint -PSFile ${file}'
+
     regex = (r'(?P<line>\d+)\s\s\s(?P<message>.*?)\s\s\s((?P<error>ParseError)|(?P<warning>Warning|Information))\s\s\s(?P<col>\d+)\s\s\s(?P<code>.*)')
     tempfile_suffix = '.tempPS1'
     multiline = False
