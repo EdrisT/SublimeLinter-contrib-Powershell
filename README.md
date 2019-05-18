@@ -8,7 +8,7 @@ SublimeLinter must be installed in order to use this plugin.
 
 Please use [Package Control](https://packagecontrol.io) to install the linter plugin.
 
-Before installing this plugin, you must ensure that `PSScriptAnalyzer` is installed on your system.  
+Before installing this plugin, you must ensure that [PSScriptAnalyzer](https://www.powershellgallery.com/packages/PSScriptAnalyzer) is installed on your system.  
 
 PSScriptAnalyzer can be installed with `Install-Module -Name PSScriptAnalyzer` from a powershell prompt, which automatically makes the module available on powershell startup.  
 
