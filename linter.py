@@ -2,27 +2,23 @@ from SublimeLinter.lint import Linter
 import os
 
 script = """
-function PSLint
+Import-Module PSScriptAnalyzer;
+"\\$FullResult = Invoke-ScriptAnalyzer -Path ${temp_file}";
+"foreach (\\$Result in \\$FullResult)"
 {
-    "param(\\$PSFile)";
-    Import-Module PSScriptAnalyzer;
-    "\\$FullResult = Invoke-ScriptAnalyzer -Path \\$PSFile";
-    "foreach (\\$Result in \\$FullResult)"
-    {
-        "\\$Line = \\$Result.Line";
-        "\\$Message = \\$Result.Message";
-        "\\$RuleName = \\$Result.RuleName";
-        "\\$Severity = \\$Result.Severity";
-        "\\$Column = \\$Result.column";
-        '\"\\$Line   \\$Message   \\$Severity   \\$Column   \\$RuleName\"'
-    }
+    "\\$Line = \\$Result.Line";
+    "\\$Message = \\$Result.Message";
+    "\\$RuleName = \\$Result.RuleName";
+    "\\$Severity = \\$Result.Severity";
+    "\\$Column = \\$Result.column";
+    '\"\\$Line   \\$Message   \\$Severity   \\$Column   \\$RuleName\"'
 }"""
 
 
 class Powershell(Linter):
 
     if os.name == 'nt':
-        cmd = 'powershell.exe -nol -c {}'.format(script) + '; PSLint -PSFile ${temp_file}'
+        cmd = 'powershell.exe -nol -c {}'.format(script)
     else:
         cmd = 'pwsh -nol -c {}'.format(script) + '; PSLint -PSFile ${temp_file}'
 
