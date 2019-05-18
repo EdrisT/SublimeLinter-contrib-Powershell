@@ -14,7 +14,7 @@ PSScriptAnalyzer can be installed with `Install-Module -Name PSScriptAnalyzer` f
 
 If PSScriptAnalyzer is downloaded and installed manually you have to make sure the module is loaded on powershell startup.  
 
-This plugin is only tested on powershell version >5, but probably works with earlier versions also.
+This plugin works on Windows PowerShell 3.0 or greater and PowerShell Core 6.1.0 or greater on Windows/Linux/macOS.  
 You can check your powershell version with `$PSVersionTable.PSVersion` from a powershell prompt.
 
 ## Settings
