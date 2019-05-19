@@ -20,7 +20,7 @@ class Powershell(Linter):
     if os.name == 'nt':
         cmd = 'powershell.exe -nol -c {}'.format(script)
     else:
-        cmd = 'pwsh -nol -c {}'.format(script) + '; PSLint -PSFile ${temp_file}'
+        cmd = 'pwsh -nol -c {}'.format(script)
 
     regex = (
         r'(?P<line>\d+)\s\s\s(?P<message>.*?)\s\s\s((?P<error>\S*Error)|'
