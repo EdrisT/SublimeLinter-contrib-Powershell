@@ -1,6 +1,76 @@
-SublimeLinter-contrib-Powershell
--------------------------------
 This linter plugin for SublimeLinter provides an interface to PSScriptAnalyzer.
+
+PSScriptAnalyzer works on Windows PowerShell 3.0 or greater and PowerShell Core 6.1.0 or greater on Windows/Linux/macOS.
+You can check your powershell version with `$PSVersionTable.PSVersion` from a powershell prompt.
+
+If not already installed, install PSScriptAnalyzer with command `Install-Module -Name PSScriptAnalyzer` from a powershell prompt.
+
+The simplest way to change the ScriptAnalyzer linter settings is from a PSScriptAnalyzer settings file.
+An example settings file with commented options is located in this plugins root folder, and also shown in the end of this helpfile.
+The provided example settings file checks for compatibility with powershell 3.0 and excludes the check for trailing spaces. Modify this to suite your needs.
+
+The linter will decide which settings to use in the following order:
+1. If a valid PSScriptAnalyzerSettings.psd1 file exists in your project folder, those settings will have precedence over all other settings. This enables you to use different settings for different projects.
+
+2.  If the powershell variable $GlobalPSScriptAnalyzerSettingsPath exists in your powershell environment and is populated with the full path to a valid settings file, those settings will be used. This enables you to use global custom settings. For persistency, set this variable in your powershell profile.
+
+3. If no settings file is found in your project folder and the $GlobalPSScriptAnalyzerSettingsPath variable is not set, default settings of PSScriptAnalyzer will be used. (all default rules enabled and no compatibility checks)
 
 For more information, please see:
 https://github.com/EdrisT/SublimeLinter-contrib-Powershell
+https://github.com/PowerShell/PSScriptAnalyzer
+https://www.powershellgallery.com/packages/PSScriptAnalyzer
+
+
+
+
+Example settings file for PSScriptAnalyzer:
+
+# ScriptAnalyzerSettings.psd1
+@{
+    # Uncomment next line to choose which diagnostic records will be shown.
+    # Severity = @('Error', 'Warning', 'Information')
+
+    # If you have created custom rules you want to use, uncomment next line and put the path to your custom rule in the CustomRulePath variable
+    # CustomRulePath = 'path\to\CustomRuleModule.psm1'
+
+    # A list of all rules can be aquired with Get-ScriptAnalyzerRule from a powershel prompt
+    # More informaton about rules: https://github.com/PowerShell/PSScriptAnalyzer/tree/master/RuleDocumentation#psscriptanalyzer-rules
+    # Include all default rules
+    IncludeDefaultRules = $true
+
+    # Specific rules to exclude.
+    ExcludeRules = @(
+        'PSAvoidTrailingWhitespace'
+        )
+
+    # Specific rules to include. If this is used, all other rules are excluded!
+    IncludeRules = @()
+
+    # Compability rules
+    Rules = @{
+        PSUseCompatibleCommands = @{
+            # Enable compatible commands check
+            Enable = $false
+
+            # Lists the PowerShell platforms we want to check compatibility with
+            # More informaton about this: https://github.com/PowerShell/PSScriptAnalyzer/blob/master/RuleDocumentation/UseCompatibleCommands.md#usecompatiblecommands
+            TargetProfiles = @(
+                'win-8_x64_10.0.17763.0_6.1.3_x64_4.0.30319.42000_core',
+                'win-8_x64_10.0.17763.0_5.1.17763.316_x64_4.0.30319.42000_framework',
+                'win-8_x64_6.2.9200.0_3.0_x64_4.0.30319.42000_framework'
+            )
+        }
+        PSUseCompatibleSyntax = @{
+            # Enable compatible syntax check
+            Enable = $true
+            # Lists the PowerShell versions we want to check compatibility with
+            # More information about this: https://github.com/PowerShell/PSScriptAnalyzer/blob/master/RuleDocumentation/UseCompatibleSyntax.md
+            TargetVersions = @(
+                '3.0'
+                '5.1',
+                '6.2'
+            )
+        }
+    }
+}
