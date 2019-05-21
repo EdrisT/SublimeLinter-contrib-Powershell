@@ -1,4 +1,4 @@
-SublimeLinter-contrib-__linter__
+SublimeLinter-contrib-Powershell
 -------------------------------
 This linter plugin for SublimeLinter provides an interface to PSScriptAnalyzer.
 
