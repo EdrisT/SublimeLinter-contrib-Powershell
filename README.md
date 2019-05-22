@@ -16,10 +16,10 @@ PSScriptAnalyzer can be installed with `Install-Module -Name PSScriptAnalyzer` f
 
 ## Settings
 The simplest way to change the [ScriptAnalyzer settings](https://github.com/PowerShell/PSScriptAnalyzer#settings-support-in-scriptanalyzer) is from a settings file.  
-An example [settings file](https://github.com/EdrisT/SublimeLinter-contrib-Powershell/blob/master/LICENSE/PcriptAnalyzerSettings.psd1) with commented options is located in this plugins root folder. The provided example settings file checks for compatibility with powershell 3.0 and excludes the check for trailing spaces.  
+An example [settings file](https://github.com/EdrisT/SublimeLinter-contrib-Powershell/blob/master/PSScriptAnalyzerSettings.psd1) with commented options is located in this plugins root folder. The provided example settings file checks for compatibility with powershell 3.0 and excludes the check for trailing spaces.  
 
 **The linter will decide which settings to use in the following order:**  
-1. If a valid [PSScriptAnalyzerSettings.psd1](https://github.com/EdrisT/SublimeLinter-contrib-Powershell/blob/master/LICENSE/PSScriptAnalyzerSettings.psd1) file exists in your project folder, those settings will have precedence over all other settings. This enables you to use different settings for different projects.
+1. If a valid [PSScriptAnalyzerSettings.psd1](https://github.com/EdrisT/SublimeLinter-contrib-Powershell/blob/master/PSScriptAnalyzerSettings.psd1) file exists in your project folder, those settings will have precedence over all other settings. This enables you to use different settings for different projects.
 
 2.  If the variable `$GlobalPSScriptAnalyzerSettingsPath` exists in your powershell environment and is populated with the full path to a valid settings file, those settings will be used. This enables you to use global custom settings. For persistency, set this variable in your powershell profile.
 
