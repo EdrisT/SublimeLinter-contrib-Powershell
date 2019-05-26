@@ -1,6 +1,6 @@
 [
     {
-        "caption": "Powershell: Fix certain warnings with PSScriptAnalyzer",
+        "caption": "Powershell: Fix warnings",
         "command": "build",
         "args": {
         	"build_system": "Packages/SublimeLinter-contrib-Powershell/PSScriptAnalyzer_AutoFix.sublime-build",

@@ -16,6 +16,11 @@ The linter will decide which settings to use in the following order:
 
 3. If no settings file is found in your project folder and the $GlobalPSScriptAnalyzerSettingsPath variable is not set, default settings of PSScriptAnalyzer will be used. (all default rules enabled and no compatibility checks)
 
+
+PSScriptAnalyzer have the ability to automatically fix certain warnings. For example expanding aliases. Even though I believe this functionality is fairly tested, always make sure to back your files before using it.
+Type `Powershell: Fix warnings` in the command palette to try it out.
+
+
 For more information, please see:
 https://github.com/EdrisT/SublimeLinter-contrib-Powershell
 https://github.com/PowerShell/PSScriptAnalyzer
