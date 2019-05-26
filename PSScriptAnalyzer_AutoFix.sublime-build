@@ -1,0 +1,5 @@
+{
+	"selector": "source.powershell",
+	"shell_cmd": "pwsh -nol -c Import-Module PSScriptAnalyzer; if (\\$GlobalPSScriptAnalyzerSettingsPath) { \\$Settings = \\$GlobalPSScriptAnalyzerSettingsPath } ; if (Test-Path PSScriptAnalyzerSettings.psd1) {\\$Settings = 'PSScriptAnalyzerSettings.psd1'} ; if (\\$Settings) { Invoke-ScriptAnalyzer -Path $file -Fix -Setting \\$Settings } else { Invoke-ScriptAnalyzer -Path $file -Fix }",
+	"windows": { "shell_cmd": "powershell.exe -nol -c Import-Module PSScriptAnalyzer; if (\\$GlobalPSScriptAnalyzerSettingsPath) { \\$Settings = \\$GlobalPSScriptAnalyzerSettingsPath } ; if (Test-Path PSScriptAnalyzerSettings.psd1) {\\$Settings = 'PSScriptAnalyzerSettings.psd1'} ; if (\\$Settings) { Invoke-ScriptAnalyzer -Path $file -Fix -Setting \\$Settings } else { Invoke-ScriptAnalyzer -Path $file -Fix };"},
+}
