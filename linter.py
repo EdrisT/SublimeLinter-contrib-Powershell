@@ -3,6 +3,7 @@ import os
 
 script = """
 Import-Module PSScriptAnalyzer;
+"\\$ErrorActionPreference" = \\"SilentlyContinue\\" ;
 if (Test-Path PSScriptAnalyzerSettings.psd1)
 {
     "\\$FullResult" = Invoke-ScriptAnalyzer ${temp_file} -Setting PSScriptAnalyzerSettings.psd1
