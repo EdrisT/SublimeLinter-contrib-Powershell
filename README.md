@@ -23,9 +23,11 @@ An example [settings file](https://github.com/EdrisT/SublimeLinter-contrib-Power
 
 1. If a valid [PSScriptAnalyzerSettings.psd1](https://github.com/EdrisT/SublimeLinter-contrib-Powershell/blob/master/PSScriptAnalyzerSettings.psd1) file exists in your project folder, those settings will have precedence over all other settings. This enables you to use different settings for different projects.
 
-2. If the variable `$GlobalPSScriptAnalyzerSettingsPath` exists in your powershell environment and is populated with the full path to a valid settings file, those settings will be used. This enables you to use global custom settings. For persistency, set this variable in your powershell profile.
+2. If the environment variable `Env:PSScriptAnalyzerSettingsPath` exists in your powershell environment and is populated with the full path to a valid settings file, those settings will be used.
 
-3. If no settings file is found in your project folder and the `$GlobalPSScriptAnalyzerSettingsPath` variable is not set, default settings of PSScriptAnalyzer will be used. (all default rules enabled and no compatibility checks)  
+3. If the variable `$GlobalPSScriptAnalyzerSettingsPath` exists in your powershell environment and is populated with the full path to a valid settings file, those settings will be used. This enables you to use global custom settings. For persistency, set this variable in your powershell profile.
+
+4. If no settings file is found in your project folder and the `$GlobalPSScriptAnalyzerSettingsPath` variable is not set, default settings of PSScriptAnalyzer will be used. (all default rules enabled and no compatibility checks)  
 
 PSScriptAnalyzer have the ability to automatically fix certain warnings. For example expanding aliases. Even though I believe this functionality is fairly tested, always make sure to back your files before using it.  
 Type `Powershell: Fix warnings` in the command palette to try it out.  
