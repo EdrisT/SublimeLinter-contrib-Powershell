@@ -10,7 +10,11 @@ if (Test-Path PSScriptAnalyzerSettings.psd1)
 }
 else
 {
-    if ("\\$GlobalPSScriptAnalyzerSettingsPath")
+    if ("\\$Env:PSScriptAnalyzerSettingsPath")
+    {
+        "\\$FullResult" = Invoke-ScriptAnalyzer ${temp_file} -Setting "\\$Env:PSScriptAnalyzerSettingsPath"
+    }
+    elseif ("\\$GlobalPSScriptAnalyzerSettingsPath")
     {
         "\\$FullResult" = Invoke-ScriptAnalyzer ${temp_file} -Setting "\\$GlobalPSScriptAnalyzerSettingsPath"
     }
