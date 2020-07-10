@@ -2,7 +2,7 @@
 
 This linter plugin for [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter) provides an interface to [PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer). It will be used with files that have the `PowerShell` syntax.  
 
-This linter works on Windows PowerShell 3.0 or greater and PowerShell Core 6.1.0 or greater on Windows/Linux/macOS.  
+This linter works on Windows PowerShell 3.0 or greater and PowerShell Core 6.2 or greater on Windows/Linux/macOS.  
 You can check your powershell version with `$PSVersionTable.PSVersion` from a powershell prompt.  
 
 ## Installation
