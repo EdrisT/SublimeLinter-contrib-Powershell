@@ -12,7 +12,9 @@ Please use [Package Control](https://packagecontrol.io) to install the linter pl
 
 Before installing this plugin, you must ensure that [PSScriptAnalyzer](https://www.powershellgallery.com/packages/PSScriptAnalyzer) is installed on your system and available on powershell startup.  
 
-PSScriptAnalyzer can be installed with `Install-Module -Name PSScriptAnalyzer` from a powershell prompt, which automatically makes the module available on powershell startup.  
+PSScriptAnalyzer can be installed with `Install-Module -Name PSScriptAnalyzer` from a powershell prompt, which automatically makes the module available on powershell startup.
+
+Finally install [this plugin using Package Control](https://packagecontrol.io/packages/SublimeLinter-contrib-Powershell)
 
 ## Settings
 
